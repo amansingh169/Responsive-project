@@ -1,0 +1,43 @@
+@use "../util" as u;
+
+// Responsive Typography
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+h1 {
+  // font-size: calc(1.75rem + 1vw); ---> growth of font relative to 'vw'
+  // font-size: clamp(1.75rem, (1.75rem + 1vw), 2.75rem); ---> 'better' approach with f-size 'clamping'
+  font-size: clamp(
+    u.rem(28),
+    (u.rem(28) + 1vw),
+    u.rem(42)
+  ); // ---> converting 'px' to 'rem' using 'rem()' from 'functions.scss/
+
+  // @include u.breakpoint-up(medium) {
+  //   font-size: 36px;
+  // }
+  // @include u.breakpoint-up(large) {
+  //   font-size: 42px;
+  // }
+}
+
+h2 {
+  font-size: clamp(u.rem(22), (u.rem(22) + 0.75vw), u.rem(32));
+}
+
+p {
+  font-size: u.rem(16);
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}

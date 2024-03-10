@@ -1,0 +1,45 @@
+@use "../util" as u;
+
+// Responsive Grid Layout
+// Responsive Widths
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   grid-template-rows: auto auto;
+//   gap: u.rem(20);
+
+//   // max-width: 1100px;
+//   width: min(100% - u.rem(40), u.rem(1000));
+
+//   margin-inline: auto;
+
+//   @include u.breakpoint-up(large) {
+//     // content
+//   }
+
+//   @include u.breakpoint-down(small) {
+//     // content
+//   }
+// }
+
+// .flex {
+//   display: flex;
+//   flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+//   gap: u.rem(20);
+
+//   // max-width: 1100px;
+//   width: min(100% - u.rem(40), u.rem(1000));
+
+//   margin-inline: auto;
+
+//   @include u.breakpoint-up(large) {
+//     // content
+//   }
+
+//   @include u.breakpoint-down(small) {
+//     // content
+//   }
+// }

@@ -1,0 +1,44 @@
+@use "../util" as u;
+
+nav {
+  padding: u.rem(24) 0;
+}
+
+.header {
+  // background-color: red;
+  width: min(100% - u.rem(48), u.rem(1200));
+  margin-inline: auto;
+
+  &__logo {
+    width: u.rem(140);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__menu {
+    > span {
+      display: block;
+      width: u.rem(26);
+      height: u.rem(2);
+      background-color: u.$darkblue;
+
+      &:not(:last-child) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  &__links {
+    
+    a {
+      color: u.$greyblue;
+      font-size: u.rem(16);
+
+      &:not(:last-child){
+        margin-inline-end: u.rem(32);
+      }
+    }
+  }
+}

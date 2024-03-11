@@ -13,10 +13,52 @@ html {
   box-sizing: inherit;
 }
 
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: u.$font;
-  background-color: var(--bg-color);
-  color: var(--color);
+  font-family: u.$base-font;
+  font-size: u.rem(18);
+  background-color: u.$white;
+  color: u.$darkblue;
+}
+
+.flex {
+  display: flex;
+
+  &.jc-c {
+    justify-content: center;
+  }
+  &.jc-sb {
+    justify-content: space-between;
+  }
+  &.ai-c {
+    align-items: center;
+  }
+}
+
+.button{
+  color: u.$white;
+  padding: u.rem(16) u.rem(30);
+  background: linear-gradient(to right, u.$limegreen, u.$brightcyan);
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.hide-for-mobile{
+  @include u.breakpoint-down(large){
+    display: none;
+  }
+}
+
+.hide-for-desktop{
+  @include u.breakpoint-up(large){
+    display: none;
+  }
 }

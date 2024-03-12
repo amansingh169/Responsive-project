@@ -43,12 +43,19 @@ body {
 }
 
 .button{
+  display: inline-block;
   color: u.$white;
   padding: u.rem(16) u.rem(30);
   background: linear-gradient(to right, u.$limegreen, u.$brightcyan);
   border-radius: 100px;
   cursor: pointer;
   font-weight: 500;
+
+  transition: opacity 0.3s ease;
+
+  &:hover{
+    opacity: .75;
+  }
 }
 
 .hide-for-mobile{
@@ -61,4 +68,9 @@ body {
   @include u.breakpoint-up(large){
     display: none;
   }
+}
+
+.section{
+  padding-top: u.rem(36);
+  padding-bottom: u.rem(36);
 }

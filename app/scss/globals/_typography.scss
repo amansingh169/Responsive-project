@@ -5,15 +5,17 @@
 h1,
 h2,
 h3 {
-  font-weight: 700;
-  line-height: 1.1;
+  font-weight: 300;
+  line-height: 1.15;
   margin-top: 0;
 }
 
 h1 {
   // font-size: calc(1.75rem + 1vw); ---> growth of font relative to 'vw'
   // font-size: clamp(1.75rem, (1.75rem + 1vw), 2.75rem); ---> 'better' approach with f-size 'clamping'
-  font-size: clamp(u.rem(28), (u.rem(28) + 1vw), u.rem(42)); // ---> converting 'px' to 'rem' using 'rem()' from 'functions.scss/
+  font-size: clamp(u.rem(36), (u.rem(30) + 2vw), u.rem(52)); // ---> converting 'px' to 'rem' using 'rem()' from 'functions.scss/
+  color: u.$darkblue;
+  margin-bottom: u.rem(24);
 
   // @include u.breakpoint-up(medium) {
   //   font-size: 36px;
@@ -28,7 +30,9 @@ h2 {
 }
 
 p {
-  font-size: u.rem(16);
+  font-size: clamp(u.rem(16), (u.rem(12) + 0.75vw), u.rem(20));
+  font-weight: 300;
+  line-height: 1.5;
   margin-top: 0;
-  color: u.$darkblue;
+  color: u.$greyblue;
 }

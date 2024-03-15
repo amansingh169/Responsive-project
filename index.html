@@ -12,13 +12,13 @@
         <a href="/" class="header__logo">
           <img src="assets/logo.svg" alt="easybank" />
         </a>
-
-        <a href="#" class="header__menu hide-for-desktop">
+        
+        <a href="#" id="hamburger-btn" class="header__menu hide-for-desktop" onclick="ham_toggle()">
           <span></span>
           <span></span>
           <span></span>
         </a>
-
+        
         <div class="header__links hide-for-mobile">
           <a href="#">Home</a>
           <a href="#">About</a>
@@ -26,25 +26,13 @@
           <a href="#">Blog</a>
           <a href="#">Career</a>
         </div>
-
+        
         <div class="button hide-for-mobile">Request Invite</div>
       </nav>
+
+      <div class="overlay"></div>
     </header>
-
-    <div class="hero">
-      <div class="hero__image"></div>
-
-      <div class="hero__text section">
-        <h1>Next generation digital banking</h1>
-        <p>
-          Take your financial life online. Your Easybank account will be a
-          one-stop-shop for spending, saving, budgeting, investing and much
-          more.
-        </p>
-        <a href="#" class="button">Request Invite</a>
-      </div>
-    </div>
-
+    
     <script src="/app/js/script.js"></script>
   </body>
 </html>

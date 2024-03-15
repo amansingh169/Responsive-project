@@ -1,21 +1,21 @@
-@use "functions" as f;
+@use "functions" as *;
 
 // Mixin definitions for breakpoints (up and down)
 
 // 375px, 900px, 1440px
 $breakpoint-up: (
-  "small": f.em(375),
-  "medium": f.em(700),
-  "large": f.em(1024),
-  "xlarge": f.em(1440),
+  "small": em(375),
+  "medium": em(700),
+  "large": em(1024),
+  "xlarge": em(1440),
 );
 
 // 699.98px, 899.98px, 1439.98px
 $breakpoint-down: (
-  "small": f.em(374.98),
-  "medium": f.em(699.98),
-  "large": f.em(1023.98),
-  "xlarge": f.em(1439.98)
+  "small": em(374.98),
+  "medium": em(699.98),
+  "large": em(1023.98),
+  "xlarge": em(1439.98)
 );
 
 @mixin breakpoint-up($size) {

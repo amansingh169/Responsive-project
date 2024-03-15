@@ -1,12 +1,28 @@
 @use "../util" as u;
 
 nav {
-  padding: u.rem(24) 0;
+  padding: u.rem(17) 0;
+  z-index: 100;
 }
 
 .header {
   width: min(100% - u.rem(48), u.rem(1113));
   margin-inline: auto;
+
+  .overlay{
+    position: fixed;
+    height: 100vh;
+    top: u.rem(58);
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    // background-color: u.$darkblue;
+    background: linear-gradient(to bottom, hsl(0, 0%, 0%, 0.7), hsla(0, 0%, 100%, 0));
+    z-index: 0;
+
+    animation: fade-out 0.3s ease-in-out forwards;
+  }
 
   &__logo {
     width: u.rem(140);
@@ -22,21 +38,65 @@ nav {
       width: u.rem(26);
       height: u.rem(2);
       background-color: u.$darkblue;
+      transition: all .3s ease-in-out;
 
       &:not(:last-child) {
-        margin-bottom: 3px;
+        margin-bottom: u.rem(3);
+      }
+    }
+
+  }
+
+  &.open {
+    .overlay{
+      animation: fade-in 0.3s ease-in-out forwards;
+    }
+
+    nav span {
+      &:first-child{
+        transform-origin: center;
+        transform: translateY(u.rem(5)) rotate(45deg);
+      }
+      &:nth-child(2){
+        opacity: 0;
+      }
+      &:last-child{
+        transform-origin: center;
+        transform: translateY(u.rem(-5)) rotate(-45deg);
       }
     }
   }
 
   &__links {
-    
     a {
+      position: relative;
       color: u.$greyblue;
       font-size: u.rem(16);
+      transition: all 0.3s ease;
 
-      &:not(:last-child){
+      &:not(:last-child) {
         margin-inline-end: u.rem(32);
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: u.rem(5);
+        bottom: u.rem(-34);
+        background: linear-gradient(to right, u.$limegreen, u.$brightcyan);
+        border-radius: u.rem(100);
+
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      &:hover {
+        color: u.$darkblue;
+
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }

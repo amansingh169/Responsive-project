@@ -1,27 +1,29 @@
 @use "../util" as u;
 
 nav {
-  padding: u.rem(17) 0;
+  position: relative;
   z-index: 100;
+  padding: u.rem(17) u.rem(24);
+  background-color: u.$white;
 }
 
 .header {
-  width: min(100% - u.rem(48), u.rem(1113));
+  position: relative;
+  width: min(100%, u.rem(1113));
   margin-inline: auto;
 
-  .overlay{
-    position: fixed;
+  .overlay {
+    display: none;
+    position: absolute;
     height: 100vh;
     top: u.rem(58);
     left: 0;
     right: 0;
-    bottom: 0;
-
-    // background-color: u.$darkblue;
-    background: linear-gradient(to bottom, hsl(0, 0%, 0%, 0.7), hsla(0, 0%, 100%, 0));
     z-index: 0;
+    background: linear-gradient(to bottom, u.$darkblue, transparent);
 
-    animation: fade-out 0.3s ease-in-out forwards;
+    // fade animation can also be done with jquery so we dont have to use an animation here
+    // animation: fade-out 0.3s ease-in-out forwards;
   }
 
   &__logo {
@@ -32,35 +34,35 @@ nav {
     }
   }
 
-  &__menu {
+  &__ham {
     > span {
       display: block;
       width: u.rem(26);
       height: u.rem(2);
+
       background-color: u.$darkblue;
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
 
       &:not(:last-child) {
         margin-bottom: u.rem(3);
       }
     }
-
   }
 
   &.open {
-    .overlay{
-      animation: fade-in 0.3s ease-in-out forwards;
-    }
+    // .overlay{
+    //   animation: fade-in 0.3s ease-in-out forwards;
+    // }
 
     nav span {
-      &:first-child{
+      &:first-child {
         transform-origin: center;
         transform: translateY(u.rem(5)) rotate(45deg);
       }
-      &:nth-child(2){
+      &:nth-child(2) {
         opacity: 0;
       }
-      &:last-child{
+      &:last-child {
         transform-origin: center;
         transform: translateY(u.rem(-5)) rotate(-45deg);
       }
@@ -70,8 +72,9 @@ nav {
   &__links {
     a {
       position: relative;
-      color: u.$greyblue;
+
       font-size: u.rem(16);
+      color: u.$greyblue;
       transition: all 0.3s ease;
 
       &:not(:last-child) {
@@ -84,10 +87,10 @@ nav {
         width: 100%;
         height: u.rem(5);
         bottom: u.rem(-34);
-        background: linear-gradient(to right, u.$limegreen, u.$brightcyan);
-        border-radius: u.rem(100);
 
         opacity: 0;
+        border-radius: u.rem(100);
+        background: linear-gradient(to right, u.$limegreen, u.$brightcyan);
         transition: opacity 0.3s ease;
       }
 
@@ -97,6 +100,39 @@ nav {
         &::before {
           opacity: 1;
         }
+      }
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + u.rem(24));
+    z-index: 1;
+    
+    // Centering the menu
+    width: calc(100% - u.rem(48));
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: u.rem(26);
+    border-radius: u.rem(5);
+    background-color: u.$white;
+
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+
+      padding: u.rem(10);
+      border-radius: u.rem(5);
+      color: black;
+
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: u.$darkblue;
+        color: u.$white;
       }
     }
   }

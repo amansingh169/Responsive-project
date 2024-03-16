@@ -26,6 +26,10 @@ body {
   font-size: u.rem(18);
   background-color: u.$white;
   color: u.$darkblue;
+
+  &.noscroll {
+    overflow: hidden;
+  }
 }
 
 .flex {
@@ -42,7 +46,7 @@ body {
   }
 }
 
-.button{
+.button {
   display: inline-block;
   color: u.$white;
   padding: u.rem(16) u.rem(30);
@@ -53,19 +57,19 @@ body {
 
   transition: opacity 0.3s ease;
 
-  &:hover{
-    opacity: .75;
+  &:hover {
+    opacity: 0.75;
   }
 }
 
-.hide-for-mobile{
-  @include u.breakpoint-down(large){
+.hide-for-mobile {
+  @include u.breakpoint-down(large) {
     display: none;
   }
 }
 
-.hide-for-desktop{
-  @include u.breakpoint-up(large){
+.hide-for-desktop {
+  @include u.breakpoint-up(large) {
     display: none;
   }
 }

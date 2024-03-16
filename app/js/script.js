@@ -1,9 +1,11 @@
-var head = document.querySelector("header");
-var overlay = document.querySelector(".overlay");
-// ham.addEventListener("click", ham_toggle)
+var head = $("header");
+var overlay = $(".overlay");
+var menu = $(".header__menu");
+var body = $("body");
 
 function ham_toggle() {
-  head.classList.toggle("open");
+  head.toggleClass("open");
+  overlay.fadeToggle(150);
 
   // if (head.classList.contains("open")) {
   //   overlay.classList.remove("fade-out");
@@ -12,4 +14,7 @@ function ham_toggle() {
   //   overlay.classList.remove("fade-in");
   //   overlay.classList.add("fade-out");
   // }
+
+  menu.slideToggle(300);
+  body.toggleClass("noscroll");
 }
